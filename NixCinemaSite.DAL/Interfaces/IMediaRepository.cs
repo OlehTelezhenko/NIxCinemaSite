@@ -1,0 +1,11 @@
+﻿using NixCinemaSite.DAL.Entities;
+using NixCinemaSite.DAL.GenericRepository;
+
+namespace NixCinemaSite.DAL.Interfaces
+{
+    public interface IMediaRepository : IGenericRepository<MediaEntity>
+    {
+        public MediaEntity GetObjectWithIncludes(Guid Id);
+        public List<MediaEntity> GetListAfterPagination(string searchMedias, string sortProperties, int currectPage, int pageSize);
+    }
+}

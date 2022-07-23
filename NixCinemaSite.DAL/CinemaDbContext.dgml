@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+<Node Id="IModel" Label="CinemaDbContext" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" PropertyAccessMode="PropertyAccessMode.Default" ProductVersion="6.0.6" Annotations="BaseTypeDiscoveryConvention:DerivedTypes: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.IConventionEntityType]]
+Relational:MaxIdentifierLength: 128
+RelationshipDiscoveryConvention:InverseNavigationCandidates: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.SortedSet`1[System.Type]]
+SqlServer:ValueGenerationStrategy: IdentityColumn" Category="Model" Group="Expanded" />
+<Node Id = "FilmEntityGenreEntity" Label="FilmEntityGenreEntity" Name="FilmEntityGenreEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "CertificateEntity" Label="CertificateEntity" Name="CertificateEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Certificates
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "FilmEntityGenreEntity.FilmsId" Label="FilmsId" Name="FilmsId" Category="Property Primary" Type="Guid" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="True" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmEntityGenreEntity.GenresId" Label="GenresId" Name="GenresId" Category="Property Primary" Type="Guid" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "CountryEntity" Label="CountryEntity" Name="CountryEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Countries
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "CertificateEntity.Id" Label="Id" Name="Id" Category="Property Primary" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "CertificateEntity.Films" Label="Films (*)" Name="Films" Category="Navigation Collection" Type="ICollection&lt;FilmEntity&gt;"  Field="" Dependent="FilmEntity" Principal="" Inverse="Certificate" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "CertificateEntity.Description" Label="Description" Name="Description" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "CertificateEntity.Image" Label="Image" Name="Image" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "CertificateEntity.Name" Label="Name" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmEntity" Label="FilmEntity" Name="FilmEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Films
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "CountryEntity.Id" Label="Id" Name="Id" Category="Property Primary" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "CountryEntity.Films" Label="Films (*)" Name="Films" Category="Navigation Collection" Type="ICollection&lt;FilmEntity&gt;"  Field="" Dependent="FilmEntity" Principal="" Inverse="Country" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "CountryEntity.Name" Label="Name" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmToPersonEntity" Label="FilmToPersonEntity" Name="FilmToPersonEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: FilmToPeople
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "FilmEntity.Id" Label="Id" Name="Id" Category="Property Primary" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "FilmEntity.Certificate" Label="Certificate (1)" Name="Certificate" Category="Navigation Property" Type="CertificateEntity"  Field="" Dependent="" Principal="CertificateEntity" Inverse="Films" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "FilmEntity.Country" Label="Country (1)" Name="Country" Category="Navigation Property" Type="CountryEntity"  Field="" Dependent="" Principal="CountryEntity" Inverse="Films" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "FilmEntity.FilmsToPersons" Label="FilmsToPersons (*)" Name="FilmsToPersons" Category="Navigation Collection" Type="ICollection&lt;FilmToPersonEntity&gt;"  Field="" Dependent="FilmToPersonEntity" Principal="" Inverse="Film" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "FilmEntity.Media" Label="Media (1)" Name="Media" Category="Navigation Property" Type="MediaEntity"  Field="" Dependent="MediaEntity" Principal="" Inverse="Film" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "FilmEntity.Genres" Label="Genres (1)" Name="Genres" Category="Navigation Property" Type="ICollection&lt;GenreEntity&gt;"  Field="" Dependent="" Principal="" Inverse="Films" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "FilmEntity.CertificateId" Label="CertificateId" Name="CertificateId" Category="Property Foreign" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmEntity.CountryId" Label="CountryId" Name="CountryId" Category="Property Foreign" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmEntity.DatePremier" Label="DatePremier" Name="DatePremier" Category="Property Required" Type="DateTime" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmEntity.Description" Label="Description" Name="Description" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmEntity.Duration" Label="Duration" Name="Duration" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmEntity.Rating" Label="Rating" Name="Rating" Category="Property Required" Type="float" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmEntity.Title" Label="Title" Name="Title" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "GenreEntity" Label="GenreEntity" Name="GenreEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Genres
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "FilmToPersonEntity.FilmId" Label="FilmId" Name="FilmId" Category="Property Primary" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="True" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmToPersonEntity.Film" Label="Film (1)" Name="Film" Category="Navigation Property" Type="FilmEntity"  Field="" Dependent="" Principal="FilmEntity" Inverse="FilmsToPersons" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "FilmToPersonEntity.Person" Label="Person (1)" Name="Person" Category="Navigation Property" Type="PersonEntity"  Field="" Dependent="" Principal="PersonEntity" Inverse="FilmsToPersons" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "FilmToPersonEntity.PersonId" Label="PersonId" Name="PersonId" Category="Property Primary" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmToPersonEntity.Id" Label="Id" Name="Id" Category="Property Required" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "FilmToPersonEntity.Role" Label="Role" Name="Role" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MediaEntity" Label="MediaEntity" Name="MediaEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Medias
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "GenreEntity.Id" Label="Id" Name="Id" Category="Property Primary" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "GenreEntity.Name" Label="Name" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "GenreEntity.Films" Label="Films" Name="Films" Category="Property Optional" Type="ICollection&lt;FilmEntity&gt;" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "PersonEntity" Label="PersonEntity" Name="PersonEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Persons
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "MediaEntity.Id" Label="Id" Name="Id" Category="Property Primary" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "MediaEntity.Film" Label="Film (1)" Name="Film" Category="Navigation Property" Type="FilmEntity"  Field="" Dependent="" Principal="FilmEntity" Inverse="Media" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "MediaEntity.FilmId" Label="FilmId" Name="FilmId" Category="Property Foreign" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MediaEntity.Link" Label="Link" Name="Link" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MediaEntity.MediaTitle" Label="MediaTitle" Name="MediaTitle" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MediaEntity.SortOrder" Label="SortOrder" Name="SortOrder" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MediaEntity.Type" Label="Type" Name="Type" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "PersonEntity" Label="PersonEntity" Name="PersonEntity" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="" Category="EntityType" Group="Expanded" />
+<Node Id = "PersonEntity.Id" Label="Id" Name="Id" Category="Property Primary" Type="Guid" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "PersonEntity.FilmsToPersons" Label="FilmsToPersons (*)" Name="FilmsToPersons" Category="Navigation Collection" Type="ICollection&lt;FilmToPersonEntity&gt;"  Field="" Dependent="FilmToPersonEntity" Principal="" Inverse="Person" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "PersonEntity.Bio" Label="Bio" Name="Bio" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "PersonEntity.DateOfBirth" Label="DateOfBirth" Name="DateOfBirth" Category="Property Required" Type="DateTime" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "PersonEntity.FirstName" Label="FirstName" Name="FirstName" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "PersonEntity.LastName" Label="LastName" Name="LastName" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "PersonEntity.Photo" Label="Photo" Name="Photo" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+  </Nodes>
+  <Links>
+<Link Source = "IModel" Target="FilmEntityGenreEntity" Category="Contains" />
+<Link Source = "IModel" Target="CertificateEntity" Category="Contains" />
+<Link Source = "FilmEntityGenreEntity" Target="FilmEntityGenreEntity.FilmsId" Category="Contains" />
+<Link Source="FilmEntityGenreEntity" Target="FilmEntity" From="FilmEntityGenreEntity.FilmsId" To="FilmEntity.Id" Name="FilmEntityGenreEntity -> FilmEntity" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="FilmEntityGenreEntity" Target="GenreEntity" From="FilmEntityGenreEntity.GenresId" To="GenreEntity.Id" Name="FilmEntityGenreEntity -> GenreEntity" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "FilmEntityGenreEntity" Target="FilmEntityGenreEntity.GenresId" Category="Contains" />
+<Link Source = "IModel" Target="CountryEntity" Category="Contains" />
+<Link Source = "CertificateEntity" Target="CertificateEntity.Films" Category="Contains" />
+<Link Source = "CertificateEntity" Target="CertificateEntity.Id" Category="Contains" />
+<Link Source = "CertificateEntity" Target="CertificateEntity.Description" Category="Contains" />
+<Link Source = "CertificateEntity" Target="CertificateEntity.Image" Category="Contains" />
+<Link Source = "CertificateEntity" Target="CertificateEntity.Name" Category="Contains" />
+<Link Source = "IModel" Target="FilmEntity" Category="Contains" />
+<Link Source = "CountryEntity" Target="CountryEntity.Films" Category="Contains" />
+<Link Source = "CountryEntity" Target="CountryEntity.Id" Category="Contains" />
+<Link Source = "CountryEntity" Target="CountryEntity.Name" Category="Contains" />
+<Link Source = "IModel" Target="FilmToPersonEntity" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Certificate" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Country" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.FilmsToPersons" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Media" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Genres" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Id" Category="Contains" />
+<Link Source="FilmEntity" Target="CertificateEntity" From="FilmEntity.CertificateId" To="CertificateEntity.Id" Name="FilmEntity -> CertificateEntity" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="FilmEntity" Target="CountryEntity" From="FilmEntity.CountryId" To="CountryEntity.Id" Name="FilmEntity -> CountryEntity" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "FilmEntity" Target="FilmEntity.CertificateId" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.CountryId" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.DatePremier" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Description" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Duration" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Rating" Category="Contains" />
+<Link Source = "FilmEntity" Target="FilmEntity.Title" Category="Contains" />
+<Link Source = "IModel" Target="GenreEntity" Category="Contains" />
+<Link Source = "FilmToPersonEntity" Target="FilmToPersonEntity.Film" Category="Contains" />
+<Link Source = "FilmToPersonEntity" Target="FilmToPersonEntity.Person" Category="Contains" />
+<Link Source = "FilmToPersonEntity" Target="FilmToPersonEntity.FilmId" Category="Contains" />
+<Link Source="FilmToPersonEntity" Target="FilmEntity" From="FilmToPersonEntity.FilmId" To="FilmEntity.Id" Name="FilmToPersonEntity -> FilmEntity" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="FilmToPersonEntity" Target="PersonEntity" From="FilmToPersonEntity.PersonId" To="PersonEntity.Id" Name="FilmToPersonEntity -> PersonEntity" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "FilmToPersonEntity" Target="FilmToPersonEntity.PersonId" Category="Contains" />
+<Link Source = "FilmToPersonEntity" Target="FilmToPersonEntity.Id" Category="Contains" />
+<Link Source = "FilmToPersonEntity" Target="FilmToPersonEntity.Role" Category="Contains" />
+<Link Source = "IModel" Target="MediaEntity" Category="Contains" />
+<Link Source = "GenreEntity" Target="GenreEntity.Id" Category="Contains" />
+<Link Source = "GenreEntity" Target="GenreEntity.Name" Category="Contains" />
+<Link Source = "GenreEntity" Target="GenreEntity.Films" Category="Contains" />
+<Link Source = "IModel" Target="PersonEntity" Category="Contains" />
+<Link Source = "MediaEntity" Target="MediaEntity.Film" Category="Contains" />
+<Link Source = "MediaEntity" Target="MediaEntity.Id" Category="Contains" />
+<Link Source="MediaEntity" Target="FilmEntity" From="MediaEntity.FilmId" To="FilmEntity.Id" Name="MediaEntity -> FilmEntity" Annotations="" IsUnique="True" Label="1:1" Category="Foreign Key" />
+<Link Source = "MediaEntity" Target="MediaEntity.FilmId" Category="Contains" />
+<Link Source = "MediaEntity" Target="MediaEntity.Link" Category="Contains" />
+<Link Source = "MediaEntity" Target="MediaEntity.MediaTitle" Category="Contains" />
+<Link Source = "MediaEntity" Target="MediaEntity.SortOrder" Category="Contains" />
+<Link Source = "MediaEntity" Target="MediaEntity.Type" Category="Contains" />
+<Link Source = "IModel" Target="PersonEntity" Category="Contains" />
+<Link Source = "PersonEntity" Target="PersonEntity.FilmsToPersons" Category="Contains" />
+<Link Source = "PersonEntity" Target="PersonEntity.Id" Category="Contains" />
+<Link Source = "PersonEntity" Target="PersonEntity.Bio" Category="Contains" />
+<Link Source = "PersonEntity" Target="PersonEntity.DateOfBirth" Category="Contains" />
+<Link Source = "PersonEntity" Target="PersonEntity.FirstName" Category="Contains" />
+<Link Source = "PersonEntity" Target="PersonEntity.LastName" Category="Contains" />
+<Link Source = "PersonEntity" Target="PersonEntity.Photo" Category="Contains" />
+  </Links>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
+      <Condition Expression="HasCategory('EntityType')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Required" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Required')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Property" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Property')" />
+      <Setter Property="Background" Value="#FF990000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Collection" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Collection')" />
+      <Setter Property="Background" Value="#FFFF3232" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Model" ValueLabel="True">
+      <Condition Expression="HasCategory('Model')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+  <Properties>
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="Field"  Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type"  Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />    
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass"  Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+  </Properties>
+</DirectedGraph>

@@ -1,0 +1,145 @@
+﻿@model NixCinemaSite.BLL.ModelsDTO.FilmDTO
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Create";
+
+}
+
+<head>
+    <title>Nix_CimenaSite</title>
+</head>
+
+<div class="main">
+    <div class="container">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Title -->
+            <div class="forms">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+            </div>
+
+            <!-- Country -->
+            <div class="forms">
+                <label asp-for="CountryId" class="control-label"></label>
+                <input class="form-control" id="selectedCountry" readonly>
+
+                <div class="input-group mb-2 countryBox">
+                    <div class="input-group">
+                        <input class='form-control' id="inputCountry" placeholder="Знайти назву країни">
+                        <span class='btn btn-success changeCountry' type='button'>Встановити</span>
+                    </div>
+                </div>
+
+                <div>
+                    <input asp-for="CountryId" class="form-control" type="hidden" id="countryId" readonly>
+                </div>
+            </div>
+
+            <!-- Genre -->
+            <div class="forms" id="genreBox">
+                <label asp-for="GenresIds" class="control-label"></label>
+                <div class="input-group mb" id="genreBlock">
+                </div>
+                <div class="input-group mb-2">
+                    <input class='form-control' id="inputGenre" placeholder="Знайти жанр">
+                    <span class='btn btn-success addGenre' type='button'>Додати</span>
+                </div>
+            </div>
+
+            <!-- Persons -->
+            <div class="forms" id="personBox">
+                <label class="control-label"></label>
+                <label asp-for="PersonsIds" class="control-label"></label>
+                <div class="input-group mb-2" id="personBlock">
+                </div>
+                <div class="input-group">
+                    <input class='form-control' id="inputPerson" placeholder="Знайти персону за ім'ям або прізвищем">
+                    <select class="form-control custom-select" id="roleSelect">
+                        <option selected>Роль</option>
+                        <option value="Актор">Актор</option>
+                        <option value="Режесер">Режесер</option>
+                        <option value="Інше">Інше</option>
+                    </select>
+                    <span class='btn btn-success addPerson' type='button'>Додати</span>
+                </div>
+            </div>
+
+            <!-- Duration -->
+            <div class="forms">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+
+            <!-- Description -->
+            <div class="forms">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" style="padding-bottom:150px" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <!-- Date Premier -->
+            <div class="forms">
+                <label asp-for="DatePremier" class="control-label"></label>
+                <input asp-for="DatePremier" class="form-control" />
+                <span asp-validation-for="DatePremier" class="text-danger"></span>
+            </div>
+
+            <!-- Certificate -->
+            <div class="forms certificateBox mb-2">
+                <label asp-for="CertificateId" class="control-label mb-2"></label>
+                <div class="input-group mb" id="certificateBlock">
+                </div>
+            </div>
+
+            <!-- Media -->
+
+            <!-- Button submit -->
+            <div class="form-group">
+                <input type="submit" value="Додати фільм" class="btn btn-success btn-lg" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            loadCertifications();
+
+            $('.changeCountry').click(function() {
+                findCountry(inputCountry.value);
+            });
+
+            $('#genreBox').on('click', '#removeGenre', function() {
+
+                $(this).parent().remove();
+            });
+
+            $('.addGenre').click(function() {
+                findGenre(inputGenre.value);
+            });
+
+            $('.addPerson').click(function() {
+                findPerson(inputPerson.value);
+            });
+
+            $('#personBox').on('click', '#removePerson', function() {
+                $(this).parent().remove();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Media";
+}
+
+<div id="mediaMainBox">
+    <div class="input-group mb-1">
+        <select name='CertificateId' class='form-select' id='mediaTypeSelect'>
+            <option value='0' selected>Тип медіа файлу</option>
+            <option value='1'>YouTube плеєр</option>
+            <option value='2'>Посилання на відео файл</option>
+            <option value='3'>Посилання на зображення</option>
+            <option value='4'>Завантаження відеофайлу</option>
+            <option value='5'>Завантаження файлу зображення</option>
+        </select>
+        <button class="btn btn-primary" type="button" id="addMediaFileBlock">Додати медіа файл</button>
+    </div>
+    <div id="madiaMainBlock">
+    </div>
+</div>
+

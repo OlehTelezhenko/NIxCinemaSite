@@ -1,0 +1,97 @@
+﻿@model NixCinemaSite.BLL.ModelsDTO.FilmDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>FilmDTO</h4>
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genres)
+        </dt>
+        @foreach (var item in Model.Genres)
+        {
+
+                @item.Name
+        }
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FilmsToPersons)
+        </dt>
+        @foreach (var item in Model.FilmsToPersons)
+        {
+
+                @item.Person.FirstName
+                @item.Person.LastName
+                @item.Role
+        }
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DatePremier)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DatePremier)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Certificate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Certificate.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Media)
+        </dt>
+        @foreach (var item in Model.Media)
+        {
+
+                @item.MediaTitle
+                @item.Type
+        }
+
+
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
