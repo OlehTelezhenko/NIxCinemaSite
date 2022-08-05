@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using NixCinemaSite.BLL.ModelsDTO;
 using NixCinemaSite.DAL.Entities;
+using NixCinemaSite.DAL.Entities.Identity;
 
 namespace NixCinemaSite.BLL.AutoMapper
 {
@@ -25,6 +26,15 @@ namespace NixCinemaSite.BLL.AutoMapper
                 ForMember(g => g.GenresIds, opt => opt.Ignore()).
                 ForMember(u => u.UploadFiles, opt => opt.Ignore()).
                 ReverseMap();
+
+            CreateMap<User, UserWithRolesDTO>().
+                ForMember(p => p.Id, opt => opt.Ignore()).
+                ForMember(p => p.UserRoles, opt => opt.Ignore()).
+                ForMember(p => p.AllRoles, opt => opt.Ignore()).
+                ForMember(p => p.Password, opt => opt.Ignore()).
+                ForMember(p => p.PasswordConfirmed, opt => opt.Ignore()).
+                ReverseMap();
+
         }
     }
 }

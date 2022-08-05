@@ -1,0 +1,40 @@
+.main
+{
+    background-size: 3%;
+    background-color: #1F1F1F ;
+}
+
+.main .embed-responsive
+{
+    background-image: url(/img/PreView.png);
+}
+.main .container
+{
+    color: white;
+    background-color: #353535;
+    
+}
+
+
+.main .container
+{
+    padding-top:40px;
+    padding-bottom: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.forms
+{
+    padding: 0px;
+    margin-bottom: 30px;
+}
+.btn
+{
+    background-color: white;
+    border: 0;
+    color: black;
+}
+.btn:hover
+{
+    background-color: green;
+}

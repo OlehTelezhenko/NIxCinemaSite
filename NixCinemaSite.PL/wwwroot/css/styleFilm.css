@@ -1,0 +1,48 @@
+
+.main
+{
+    background-size: 3%;
+    background-color: #1F1F1F ;
+}
+
+.main .embed-responsive
+{
+    background-image: url(/img/PreView.png);
+}
+.main .container
+{
+    color: white;
+    background-color: #353535;
+    
+}
+
+.container .container
+{
+    padding-bottom: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.text-body
+{
+    color: white;
+}
+
+.row .col
+{
+    color: lightgreen;
+}
+.btn
+{
+    background-color:lightgreen;
+    color: black;
+    border-color: lightgreen;
+    font-size: medium;
+    font-weight: bold;
+}
+.colo :hover
+{
+    color: black;
+    background-color: white;
+    border-color: gray;
+}

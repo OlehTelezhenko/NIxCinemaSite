@@ -1,49 +1,58 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using NixCinemaSite.DAL.IdentityEntities;
-using NixCinemaSite.PL.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using NixCinemaSite.BLL.Intefaces;
+using NixCinemaSite.BLL.ModelsDTO;
 
-namespace NixCinemaSite.PL.Controllers
+namespace NixCinemaSite.PL.Areas.Admin.Controllers
 {
+    [Controller]
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        private readonly IAccountService _accountServise;
+        public AccountController(IAccountService accountServise)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _accountServise = accountServise;
         }
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(UserDTO userDTO)
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email};
-                // добавляем пользователя
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    // установка куки
-                    await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
-                }
+                await _accountServise.Register(userDTO);
+                return RedirectToAction("Index", "Home", new { area = "" });
             }
-            return View(model);
+            return View(userDTO);
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                await _accountServise.Login(loginDTO);
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+            return View(loginDTO);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            // удаляем аутентификационные куки
+            await _accountServise.LogOut();
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

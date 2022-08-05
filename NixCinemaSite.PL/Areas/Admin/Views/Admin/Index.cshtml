@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+
+<div class="container text-center">
+    <div class="row">
+
+        @if (User.IsInRole("Moderator") || User.IsInRole("Admin"))
+        {
+            <div class="col">
+                <a asp-area="Admin" asp-controller="Certificate" asp-action="Index" class="btn btn-secondary">Сертіфікати</a>
+            </div>
+            <div class="col">
+                <a asp-area="Admin" asp-controller="Country" asp-action="Index" class="btn btn-secondary">Країни</a>
+            </div>
+            <div class="col">
+                <a asp-area="Admin" asp-controller="Film" asp-action="Index" class="btn btn-secondary">Фільми</a>
+            </div>
+            <div class="col">
+                <a asp-area="Admin" asp-controller="Genre" asp-action="Index" class="btn btn-secondary">Жанри</a>
+            </div>
+            <div class="col">
+                <a asp-area="Admin" asp-controller="Media" asp-action="Index" class="btn btn-secondary">Медіафайли</a>
+            </div>
+            <div class="col">
+                <a asp-area="Admin" asp-controller="Person" asp-action="Index" class="btn btn-secondary">Актори</a>
+            </div>
+        }
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="col">
+                <a asp-area="Admin" asp-controller="User" asp-action="Index" class="btn btn-danger">Користовачі</a>
+            </div>
+            <div class="col">
+                <a asp-area="Identity" asp-controller="Roles" asp-action="Index" class="btn btn-danger">Ролі</a>
+            </div>
+        }
+    </div>
+
+</div>
+
+
+@* 
+// TODO opt сделать динамически 
+*@
+  
+

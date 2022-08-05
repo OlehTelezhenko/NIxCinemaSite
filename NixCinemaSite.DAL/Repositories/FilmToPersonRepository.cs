@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NixCinemaSite.DAL.DbContexts;
 using NixCinemaSite.DAL.Entities;
-using NixCinemaSite.DAL.GenericRepository;
 using NixCinemaSite.DAL.Interfaces;
 
 namespace NixCinemaSite.DAL.Repositories

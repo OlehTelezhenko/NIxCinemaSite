@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NixCinemaSite.DAL.DbContexts;
 using NixCinemaSite.DAL.Entities;
-using NixCinemaSite.DAL.GenericRepository;
 using NixCinemaSite.DAL.Interfaces;
 
 namespace NixCinemaSite.DAL.Repositories
@@ -23,6 +22,7 @@ namespace NixCinemaSite.DAL.Repositories
                 .FirstOrDefault();
             return certificate!;
         }
+
         public List<CertificateEntity> GetListAfterPagination(string searchString, string sortProperties, int currectPage, int pageSize)
         {
             IQueryable<CertificateEntity> certificateIQuery = _context.Certificates;
@@ -31,7 +31,7 @@ namespace NixCinemaSite.DAL.Repositories
             {
                 certificateIQuery = certificateIQuery.Where(c => c.Name.Contains(searchString));
             }
-
+            // TODO снова сортировка
             switch (sortProperties)
             {
                 case "SortByName":

@@ -1,0 +1,34 @@
+
+.main
+{
+    background-color: #1F1F1F ;
+}
+
+.main .container
+{
+    color: white;
+    background-color: #353535;
+}
+
+
+.text-body
+{
+    color: white;
+}
+
+.carousel
+{
+    background-color: #1F1F1F ;
+}
+
+
+.asd{
+    background-image: url(https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/655d9ab4-a2ae-46fb-9857-3a06ceda81d5/600x900);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.asd:hover
+{
+    opacity: 40%;
+    background-color: black;
+}

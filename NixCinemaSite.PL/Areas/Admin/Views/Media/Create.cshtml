@@ -1,0 +1,119 @@
+﻿@model NixCinemaSite.BLL.ModelsDTO.MediaDTO
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>MediaDTO</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <div class="findFilmBox">
+            <label>Пошук медіафайлів за назвою фільму </label>
+
+            <div class="input-group mb-2" id="findFilm">
+                <input type="text" class="form-control" id="inputFindFilm" placeholder="Наприклад: Термінатор">
+                <div class="input-group-append">
+                    <button id="findFilmButton" class="btn btn-outline-secondary" type="button">Пошук</button>
+                </div>
+            </div>
+            <div id="foundFilmBox">
+                <div id="foundFilmBlock">
+                </div>
+            </div>
+        </div>
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FilmId" class="control-label"></label>
+                <input asp-for="FilmId" id="selectedFilmId" class="form-control" readonly />
+                <span asp-validation-for="FilmId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilmTitle" class="control-label"></label>
+                <input asp-for="FilmTitle" id="selectedFilmTitle" class="form-control" readonly />
+                <span asp-validation-for="FilmTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediaTitle" class="control-label"></label>
+                <input asp-for="MediaTitle" class="form-control" />
+                <span asp-validation-for="MediaTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link" class="control-label"></label>
+                <input asp-for="Link" class="form-control" />
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SortOrder" class="control-label"></label>
+                <input asp-for="SortOrder" class="form-control" />
+                <span asp-validation-for="SortOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#findFilmButton').click(function() {
+                findFilmByTitle(inputFindFilm.value);
+            });
+            $('#foundFilmBox').on('click', '#selectFilm', function() {
+                selectedFilmId.value = findResulFilmId.value;
+                selectedFilmTitle.value = findResulFilmTitle.value;
+                inputFindFilm.value = "";
+                $("#inputFindFilm").attr("placeholder", "Наприклад: Термінатор");
+                $(this).parent().remove();
+            });
+        });
+
+        function findFilmByTitle(input) {
+            $.ajax({
+                url: '/film/get/' + input,
+                type: 'GET',
+                dataType: 'json',
+                success: function(result) {
+                    if (result != undefined) {
+                        var block = "";
+                        block += "<div class='input-group mb-2'>";
+                        block += "<input type='text' class='form-control' id='findResulFilmId' value='" + result.id + "' readonly>";
+                        block += "<input type='text' class='form-control' id='findResulFilmTitle' value='" + result.title + "' readonly>";
+                        block += "<button class='btn btn-outline-secondary' id='selectFilm' type='button'>Обрати</button>";
+                        block += "</div>";
+
+                        $("#foundFilmBlock:last").before(block);
+                    }
+                    else {
+                        inputFindFilm.value = "";
+                        $("#inputFindFilm").attr("placeholder", "В базі данних немає такого фільму");
+                    }
+                }
+            })
+        }
+
+    </script>
+}

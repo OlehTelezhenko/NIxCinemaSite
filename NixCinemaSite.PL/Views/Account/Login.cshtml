@@ -1,0 +1,25 @@
+﻿@model NixCinemaSite.BLL.ModelsDTO.LoginDTO
+
+<form method="post" asp-controller="Account" asp-action="Login">
+
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <label asp-for="UserName"></label>"Admin"<br />
+        <input class="form-control" asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password"></label>"!23Qwe"<br />
+        <input class="form-control" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-text">
+            <input asp-for="RememberMe" class="form-check-input mt-0" type="checkbox">
+        </div>
+        <label type="text" class="form-control" asp-for="RememberMe"></label><br />
+    </div>
+    <div class="mb-3">
+        <input class="btn btn-primary" type="submit" value="Войти" />
+    </div>
+</form>

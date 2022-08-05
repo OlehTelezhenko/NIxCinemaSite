@@ -1,5 +1,4 @@
 ﻿using NixCinemaSite.DAL.Entities;
-using NixCinemaSite.DAL.GenericRepository;
 
 namespace NixCinemaSite.DAL.Interfaces
 {

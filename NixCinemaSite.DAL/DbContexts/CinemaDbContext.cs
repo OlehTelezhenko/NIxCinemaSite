@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NixCinemaSite.DAL.Entities;
-using NixCinemaSite.DAL.IdentityEntities;
+using NixCinemaSite.DAL.Entities.Identity;
 
-//сертифигаты
+//сертификаты
 //https://www.google.com/search?q=age+classification+movies&tbm=isch&chips=q:age+classification+movies,online_chips:certificate+ratings:Blgtu2nYnt8%3D&hl=ru&sa=X&ved=2ahUKEwigvoDjqO_4AhXhsIsKHbbYDzMQ4lYoBHoECAEQKA&biw=1423&bih=757
 //https://www.bbfc.co.uk/about-classification/classification-guidelines
 
@@ -14,6 +14,7 @@ namespace NixCinemaSite.DAL.DbContexts
 {
     public class CinemaDbContext : IdentityDbContext<User>
     {
+        // TODO nubble reference dbcontext https://docs.microsoft.com/en-us/ef/core/miscellaneous/nullable-reference-types#dbcontext-and-dbset
         public DbSet<CertificateEntity>? Certificates { get; set; }
         public DbSet<CountryEntity>? Countries { get; set; }
         public DbSet<FilmEntity>? Films { get; set; }

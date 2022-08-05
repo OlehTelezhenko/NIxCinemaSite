@@ -17,6 +17,9 @@ function findCountry(inputCountry) {
                     $("#inputCountry").val('');
                     $('#inputCountry').attr("placeholder", "В базі данних мемає такої країни");
                 }
+            },
+            error: function () {
+                alert('findCountry ajax - error connection');
             }
         });
     }
@@ -47,6 +50,9 @@ function findGenre(inputGenre) {
                     $("#inputGenre").val('');
                     $('#inputGenre').attr("placeholder", "В базі данних мемає такого жанру");
                 }
+            },
+            error: function () {
+                alert('findGenre ajax - error connection');
             }
         });
     }
@@ -85,6 +91,9 @@ function findPerson(inputPerson) {
                     $("#inputPerson").val('');
                     $('#inputPerson').attr("placeholder", "В базі данних мемає такго персони");
                 }
+            },
+            error: function () {
+                alert('findPerson ajax - error connection');
             }
         });
     }
@@ -92,7 +101,7 @@ function findPerson(inputPerson) {
 
 function loadCertifications() {
     $.ajax({
-        url: '/Certificate/GetList/',
+        url: '/Certificate/GetList',
         type: 'GET',
         dataType: 'json',
         success: function (result) {
@@ -104,6 +113,9 @@ function loadCertifications() {
 
             block += "</select>";
             $("#certificateBlock:last").before(block);
+        },
+        error: function () {
+            alert('loadCertifications ajax - error connection');
         }
     });
 }

@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model NixCinemaSite.BLL.ModelsDTO.UserDTO
+
+
+<div class="container text-center">
+    <div class="row">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="col">
+                <a class="btn btn-info">Інформація</a>
+            </div>
+
+            <div class="col">
+                <a class="btn btn-info">Редагувати інформацію</a>
+            </div>
+
+            <div class="col">
+                <a class="btn btn-info">Покупки</a>
+            </div>
+        }
+    </div>
+</div>
+
+

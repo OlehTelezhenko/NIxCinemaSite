@@ -1,40 +1,19 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using NixCinemaSite.BLL.AutoMapper;
-using NixCinemaSite.BLL.Intefaces;
-using NixCinemaSite.BLL.Services;
-using NixCinemaSite.DAL.DbContexts;
-using NixCinemaSite.DAL.GenericRepository;
-using NixCinemaSite.DAL.IdentityEntities;
-using NixCinemaSite.DAL.Interfaces;
-using NixCinemaSite.DAL.Repositories;
-//using NixCinemaSite.DAL.UnitOfWork;
+using NixCinemaSite.BLL.Helpers;
+
+//Для заполнения ролями/юзерами
+//using Microsoft.AspNetCore.Identity;
+//using NixCinemaSite.DAL.Entities.Identity;
+//using NixCinemaSite.DAL.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<CinemaDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<CinemaDbContext>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-//builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddTransient<ICertificateRepository, CertificateRepository>();
-builder.Services.AddTransient<ICountryRepository, CountryRepository>();
-builder.Services.AddTransient<IFilmRepository, FilmRepository>();
-builder.Services.AddTransient<IFilmToPersonRepository, FilmToPersonRepository>();
-builder.Services.AddTransient<IGenreRepository, GenreRepository>();
-builder.Services.AddTransient<IMediaRepository, MediaRepository>();
-builder.Services.AddTransient<IPersonRepository, PersonRepository>();
-
-builder.Services.AddTransient<IPresentationCertificateService, PresentationCertificateService>();
-builder.Services.AddTransient<IPresentationCountryService, PresentationCountryService>();
-builder.Services.AddTransient<IPresentationFilmService, PresentationFilmService>();
-builder.Services.AddTransient<IPresentationGenreService, PresentationGenreService>();
-builder.Services.AddTransient<IPresentationMediaService, PresentationMediaService>();
-builder.Services.AddTransient<IPresentationPersonService, PresentationPersonService>();
+// TODO Методы расширения https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
+// https://stackoverflow.com/questions/70472624/dotnet-6-how-to-create-class-library-for-service-extensions
+builder.Services.RegisterBL(builder.Configuration);
 
 var app = builder.Build();
 
@@ -48,10 +27,24 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
+
+//Заполнение юзер/роль для идентити
+
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    var userManager = services.GetRequiredService<UserManager<User>>();
+//    var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+//    await RoleInitializer.InitializeAsync(userManager, rolesManager);
+//}
+
+app.MapControllerRoute(
+    name: "AreaRoute",
+    pattern: "{area:exists}/{controller}/{action}/{id?}"
+    );
 
 app.MapControllerRoute(
     name: "default",

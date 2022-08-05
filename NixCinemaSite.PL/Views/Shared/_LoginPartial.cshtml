@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+<div class="navbar">
+
+    @if (User.IsInRole("Moderator") || User.IsInRole("Admin"))
+    {
+        <a class="navLinks" asp-area="Admin" asp-controller="Admin" asp-action="Index">Адмінка</a>
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form class="navLinks" asp-area="Identity" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")">
+            @{//TODO салатовый цвет при наведении на кнопку кнопку
+            }
+            <button style="color:white; text-decoration:none;" type="submit" class="nav-link btn navLinks">
+                Вихід
+            </button>
+        </form>
+        <span class="text-light" title="Manage">@User.Identity?.Name</span>
+        <a class="navLinks" asp-area="Identity" asp-controller="Account" asp-action="Index">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            </svg>
+        </a>
+    }
+    else
+    {
+        <a class="navLinks" asp-controller="Account" asp-action="Register">Реєстрація</a>
+        <a class="navLinks" asp-controller="Account" asp-action="Login">Вхід</a>
+        <a class="navLinks" asp-controller="Account" asp-action="Login">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            </svg>
+        </a>
+    }
+</div>

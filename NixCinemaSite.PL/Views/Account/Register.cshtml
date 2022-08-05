@@ -1,29 +1,41 @@
-﻿@model NixCinemaSite.PL.Models.RegisterViewModel
+﻿@model NixCinemaSite.BLL.ModelsDTO.UserDTO
 
-<h2>Регистрация нового пользователя</h2>
+<h2>Реєстрація нового користувача</h2>
+
 <form method="post" asp-controller="Account" asp-action="Register">
     <div asp-validation-summary="ModelOnly"></div>
-    <div>
+    
+    <div class="mb-3">
+        <label asp-for="UserName"></label><br />
+        <input class="form-control" asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DateOfBirth"></label><br />
+        <input class="form-control" type="date" asp-for="DateOfBirth"/>
+        <span asp-validation-for="DateOfBirth"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNumber"></label><br />
+        <input class="form-control" asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+    <div class="mb-3">
         <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
+        <input class="form-control" asp-for="Email" />
         <span asp-validation-for="Email"></span>
     </div>
-    <div>
-        <label asp-for="Year"></label><br />
-        <input asp-for="Year" />
-        <span asp-validation-for="Year"></span>
-    </div>
-    <div>
+    <div class="mb-3">
         <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
+        <input class="form-control" asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
-    <div>
-        <label asp-for="PasswordConfirm"></label><br />
-        <input asp-for="PasswordConfirm" />
-        <span asp-validation-for="PasswordConfirm"></span>
+    <div class="mb-3">
+        <label asp-for="PasswordConfirmed"></label><br />
+        <input class="form-control" asp-for="PasswordConfirmed" />
+        <span asp-validation-for="PasswordConfirmed"></span>
     </div>
-    <div>
-        <input type="submit" value="Регистрация" />
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary" value="Реєстрація" />
     </div>
 </form>
